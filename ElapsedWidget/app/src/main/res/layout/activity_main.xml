@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0F13"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/start_stamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#8FA3B0"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="true"
+            android:layout_marginTop="18dp">
+
+            <TextView
+                android:id="@+id/big_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="52sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/days_plural"
+                android:textColor="#8FA3B0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/big_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textColor="#4ADE80"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/btn_pick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/change_start" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="12dp"
+            android:background="#1FFFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/UnitRow">
+                <TextView style="@style/UnitLabel" android:text="@string/l_seconds" />
+                <TextView android:id="@+id/v_seconds" style="@style/UnitValue" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/UnitRow">
+                <TextView style="@style/UnitLabel" android:text="@string/l_minutes" />
+                <TextView android:id="@+id/v_minutes" style="@style/UnitValue" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/UnitRow">
+                <TextView style="@style/UnitLabel" android:text="@string/l_hours" />
+                <TextView android:id="@+id/v_hours" style="@style/UnitValue" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/UnitRow">
+                <TextView style="@style/UnitLabel" android:text="@string/l_days" />
+                <TextView android:id="@+id/v_days" style="@style/UnitValue" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/UnitRow">
+                <TextView style="@style/UnitLabel" android:text="@string/l_weeks" />
+                <TextView android:id="@+id/v_weeks" style="@style/UnitValue" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/UnitRow">
+                <TextView style="@style/UnitLabel" android:text="@string/l_year" />
+                <TextView android:id="@+id/v_year" style="@style/UnitValue" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Elapsed</string>
+    <string name="widget_description">Counts up continuously from a date you choose.</string>
+    <string name="since_label">ELAPSED</string>
+    <string name="days_plural">days</string>
+
+    <plurals name="days">
+        <item quantity="one">day</item>
+        <item quantity="other">days</item>
+    </plurals>
+
+    <!-- hours, minutes, seconds -->
+    <string name="widget_sub">%1$s hours · %2$s minutes · %3$s seconds</string>
+
+    <string name="counting_since">Counting since %1$s</string>
+    <string name="weeks_and_days">%1$s weeks and %2$s days</string>
+    <string name="change_start">Change start date &amp; time</string>
+
+    <string name="l_seconds">Seconds</string>
+    <string name="l_minutes">Minutes</string>
+    <string name="l_hours">Hours</string>
+    <string name="l_days">Days</string>
+    <string name="l_weeks">Weeks</string>
+    <string name="l_year">Of a common year (365 days)</string>
+
+    <string name="cfg_title">Set the start point</string>
+    <string name="cfg_hint">Label (optional, e.g. Since birth)</string>
+    <string name="cfg_done">Add widget</string>
+</resources>
