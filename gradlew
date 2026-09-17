@@ -79,7 +79,7 @@ expand_directories() {
             printf '%s\n' "$file"
             ;;  
           * )
-            ls -ld "$file" 2>\/dev\/null |
+            ls -ld "$file" 2>/dev/null |
             sed -n 's|^ *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *[^ ]* *\([^ ]*\) .*$|\1|p'
             ;;
         esac
@@ -87,33 +87,30 @@ expand_directories() {
 }
 
 expand() {
-    
     # Note: We cannot use sed -e 's|[^/]*||g' because the \1 in the sed pattern
     # would be interpreted as the first backreference, but we also have \1 in the
     # DEFAULT_JVM_OPTS.
     base="${APP_HOME#./}"
     [ "$base" = "$APP_HOME" ] && base="."
-    find "$base" -maxdepth 1 -mindepth 1 -type d -name 'lib*' | sort | sed 's|^|:|' | sed -e 's|:|'"$base"/|g' | tr '\n' ' ' | sed 's| $||' | sed 's|^|:|'
+    find "$base" -maxdepth 1 -mindepth 1 -type d -name 'lib*' | sort | sed 's|^|:|' | sed -e 's|:|"$base"/|g' | tr '\n' ' ' | sed 's| $||' | sed 's|^|:|'
 }
 
-cd "$APP_HOME" || { echo \"APP_HOME does not exist!\" >&2 ; exit 1 ; }
-
+cd "$APP_HOME" || { echo "APP_HOME does not exist!" >&2 ; exit 1 ; }
 
 if [ -x "$(command -v jshell)" ] ; then
     set +e
     ( echo 'System.exit(0)' | jshell -S -J-Xmx512m )
     jshell_exit=$?
     set -e
-    
+
     if [ $jshell_exit -eq 127 ]; then
-        
         JAVA_HOME=
     fi
 fi
 
 # Increase the maximum file descriptors if we can, though if we can't then leave it to default
 if ! command -v ulimit &> /dev/null ; then
-    warn \"ulimit not available: ignoring -n argument\"
+    warn "ulimit not available: ignoring -n argument"
 else
     case $( ulimit -n ) in  #(
       *unlimited*|*65536*) :;; #(
