@@ -22,17 +22,19 @@ jobs:
           packages: 'build-tools;34.0.0 platforms;android-34'
 
       - name: Make gradlew executable
+        working-directory: ElapsedWidget
         run: chmod +x ./gradlew
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build debug APK
+        working-directory: ElapsedWidget
         run: ./gradlew assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Elapsed-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: ElapsedWidget/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
