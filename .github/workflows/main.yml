@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -21,11 +22,11 @@ jobs:
         with:
           packages: 'build-tools;34.0.0 platforms;android-34'
 
-      - name: Make gradlew executable
+      - name: Make Gradle wrapper executable
         working-directory: ElapsedWidget
-        run: chmod +x ./gradlew
+        run: chmod +x gradlew
 
-      - name: Setup Gradle
+      - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build debug APK
