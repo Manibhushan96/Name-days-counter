@@ -97,16 +97,6 @@ expand() {
 
 cd "$APP_HOME" || { echo "APP_HOME does not exist!" >&2 ; exit 1 ; }
 
-if [ -x "$(command -v jshell)" ] ; then
-    set +e
-    ( echo 'System.exit(0)' | jshell -S -J-Xmx512m )
-    jshell_exit=$?
-    set -e
-
-    if [ $jshell_exit -eq 127 ]; then
-        JAVA_HOME=
-    fi
-fi
 
 # Increase the maximum file descriptors if we can, though if we can't then leave it to default
 if ! command -v ulimit &> /dev/null ; then
